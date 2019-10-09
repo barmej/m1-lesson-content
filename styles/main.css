@@ -2,7 +2,7 @@ body {
     background: #191919;
     color: white;
     direction: rtl;
-    font-family: 'cairo', sans-serif;
+    font-family: sans-serif;
 }
 h2 {
   margin: 0;
@@ -109,10 +109,7 @@ footer.section {
   text-align: left;
   padding: 16px;
   box-sizing: border-box;
-  opacity: 0; 
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  opacity: 0;
 }
 .moviesGrid li a {
   text-decoration: none;
@@ -152,7 +149,6 @@ footer.section {
   }
   .moviesGrid li {
     margin: 0 0 24px;
-    position: relative;
   }
   .navbar-menu {
     display: flex;
