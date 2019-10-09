@@ -1,0 +1,226 @@
+body {
+    background: #191919;
+    color: white;
+    direction: rtl;
+    font-family: 'cairo', sans-serif;
+}
+h2 {
+  margin: 0;
+}
+header {
+  padding: 16px;
+  background: black;
+}
+header .container {
+  display: flex;
+}
+.navbar-menu {
+  /* نقوم هنا بإخفاء القائمة في حالات أن الشاشة صغيرة */
+  display: none;
+}
+.navbar-burger {
+  display: flex;
+  margin-left: 8px;
+  border: none;
+  background: none;
+}
+.navbar-logo {
+  display: flex;
+}
+.navbar-search {
+  margin-right: auto;
+}
+.searchInput {
+  line-height: 18px;
+  padding: 8px;
+  width: 190px;
+  font-size: 16px;
+}
+footer.section {
+  background: #000000;
+  padding: 1.25rem 2rem;
+}
+
+.footer-nav {
+  display: flex;
+}
+.footer-nav .logout {
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+.footer-nav .logout:hover {
+  color: #FFFFFF;
+}
+.hero {
+  padding: 48px 32px;
+}
+.featured-title {
+  color: white;
+  font: 32px;
+}
+.featured-overview {
+  font-size: 20px;
+  line-height: 36px;
+  color: #ffffff6b;
+  text-align: justify;
+  margin: 16px 0;
+  max-width: 540px;
+}
+.section-title {
+  color: white;
+  margin: 0;
+  padding: 16px 0;
+}
+.button {
+  display: inline-block;
+  background: #e6b31e;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 16px;
+  padding: 16px 24px;
+}
+.is-secondary {
+  background: transparent;
+  color: #e6b31e;
+  border: 2px solid #e6b31e;
+}
+.movies {
+  background: #191919;
+  padding: 0 32px; /* تم إضافة هذا السطر لوضع مساحة خالية على جانبي حاوية الأفلام للتناسق مع بقية الحاويات*/
+}
+.featuredMovies {
+  background: url('../images/cover.svg') no-repeat;
+  background-size: cover;/*تم إضافة هذا السطر للتأكد من أن الخلفية ستكون على عرض الحاوية كلها*/
+}
+.moviesGrid {
+  display: flex;
+  margin: 0 16px 0 0;
+  padding: 0;
+  overflow: scroll;
+  list-style-type: none;
+}
+.movie-description {
+  display: flex;
+  width: 100%;
+  background: black;
+  color: white;
+  text-align: left;
+  padding: 16px;
+  box-sizing: border-box;
+  opacity: 0; 
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.moviesGrid li a {
+  text-decoration: none;
+}
+.moviesGrid li:hover .movie-description {
+  opacity: 1;
+}
+.play-icon {
+  margin-left: auto;
+}
+.section.filter {
+  padding: 32px;
+}
+/*أبعاد التابلت*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .moviesGrid {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .moviesGrid li {
+    margin: 0 2%;
+  }
+  .section-title {
+    text-align: center;
+  }
+}
+@media (min-width: 1220px) {
+  .section .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .moviesGrid {
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    flex-flow: wrap;
+  }
+  .moviesGrid li {
+    margin: 0 0 24px;
+    position: relative;
+  }
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    margin: 0 16px;
+    padding-bottom: 18px;
+  }
+
+  a.navbar-item.active {
+      border-bottom-color: #e6b31e;
+  }
+}
+.movieTypeLabel {
+  font-weight: bold;
+}
+.movieTypeSelect {
+  margin-right: 16px;
+}
+.detailsPage {
+  min-height: 60vh;
+  position: relative;
+}
+.movieVideo iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.detailsPage .featured-overview {
+  color: rgba(255,255,255,.7);
+  text-shadow: 0 0 8px black;
+}
+.detailsPage {
+  min-height: 60vh;
+  position: relative;
+}
+
+.movieVideo iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.movieMetaData span.title {
+  color: rgba(255,255,255,.6);
+  display: block;
+}
+
+.movieMetaData .values {
+  color: white;
+  display: block;
+}
+
+.movieMetaData {
+  padding: 32px;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.movieMetaData .plot p {
+  color: rgba(255,255,255,.7);
+}
