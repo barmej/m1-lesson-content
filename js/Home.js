@@ -1,4 +1,23 @@
+import { getCookie } from './helpers';
+
+function fetchSuggestedMovies() {
+    fetch('https://netflux-api.barmej.com/api/movies/latest', {
+        headers: {
+            'Authorization': `Bearer ${getCookie('accessToken')}`
+        }
+    }).then(res => res.json().then(response => document.querySelector("#suggestedMovies").innerHTML = response.movies.slice(0,4).map(movie => `<li class="movie">
+        <img src="https://image.tmdb.org/t/p/w300${movie.posterPath}" />
+        <a href="#/details">
+            <span class="movie-description">
+                ${movie.originalTitle}
+                <span class="play-icon"><i class="fas fa-play"></i></span>
+            </span>
+        </a>
+    </li>`).join("")))
+    .catch(err => document.location.hash = "/login");
+}
 const Home = function render() {
+    fetchSuggestedMovies();
 	return `<section class="section hero featuredMovies has-bullets">
     <div class="container">
         <div class="slide featured">
@@ -16,43 +35,7 @@ const Home = function render() {
 <section class="section movies slider has-arrows is-suggested">
     <div class="container">
         <h3 class="section-title">إقتراحتنا لك</h3>
-        <ul class="moviesGrid">
-            <li class="movie">
-                <a href="#/details">
-                    <img src="https://image.tmdb.org/t/p/w300/4onX7UF2MPUgIpkUerLC3dpVfNZ.jpg" />
-                    <span class="movie-description">
-                        <span class="play-icon"><i class="fas fa-play"></i></span>
-                        The Maze Runner
-                    </span>
-                </a>
-            </li>
-            <li class="movie">
-                <a href="#/details">
-                    <img src="https://image.tmdb.org/t/p/w300/q1i8QHiHZ1cukG5iOxai8pydmoa.jpg" />
-                    <span class="movie-description">
-                        <span class="play-icon"><i class="fas fa-play"></i></span>
-                        Breaking Bad
-                    </span>
-                </a>
-            </li>
-            <li class="movie">
-                <a href="#/details">
-                    <img src="https://image.tmdb.org/t/p/w300/iMNp6gTeDBXbzjKRNYtorxZ76G2.jpg" />
-                    <span class="movie-description">
-                        <span class="play-icon"><i class="fas fa-play"></i></span>
-                        Peaky Blinders
-                    </span>
-                </a>
-            </li>
-            <li class="movie">
-                <a href="#/details">
-                    <img src="https://image.tmdb.org/t/p/w300/lemqKtcCuAano5aqrzxYiKC8kkn.jpg" />
-                    <span class="movie-description">
-                        <span class="play-icon"><i class="fas fa-play"></i></span>
-                        The Good Doctor
-                    </span>
-                </a>
-            </li>
+        <ul class="moviesGrid" id="suggestedMovies">
         </ul>
     </div>
 </section>

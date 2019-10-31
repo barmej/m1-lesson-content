@@ -10,6 +10,9 @@ h2 {
 .container {
   position: relative;
 }
+.is-loggedOut header, .is-loggedOut footer {
+  display: none;
+}
 header {
   padding: 13px 16px;
   background: black;
@@ -297,4 +300,46 @@ footer .navbar-menu {
 
 .movieMetaData .plot p {
   color: rgba(255,255,255,.7);
+}
+section.login {
+  margin: 0 auto;
+  width: 28rem;
+  max-width: 90%;
+  text-align: center;
+}
+section.login .logo {
+  margin: 7rem 0;
+}
+form label, .label {
+  display: block;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: .5rem;
+}
+form input {
+  display: block;
+  background: rgba(255, 255, 255, 0.07);
+  width: 100%;
+  line-height: 1.75rem;
+  border: none;
+  color: white;
+  padding: 1rem;
+}
+.form-field {
+  margin-bottom: 2rem;
+  display: block;
+}
+.login input[type=submit] {
+  background-color: #b78500;
+}
+form .button, input[type=submit] {
+  font-weight: normal;
+}
+.form-switch {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 4rem;
+  text-decoration: none;
+}
+.form-switch:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
